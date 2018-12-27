@@ -261,7 +261,10 @@ metadata:
     # Specify SSL certificate to use
     service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "ARN"
     # Use SSL on the HTTPS port
-    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "tcp" #make it http if you want https and http in play
+    # Increase the ELB idle timeout to avoid issues with WebSockets or Server-Sent Events.
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "3600"
 spec:
   type: LoadBalancer
   selector:

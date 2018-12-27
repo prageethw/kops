@@ -224,16 +224,9 @@ metadata:
   labels:
     k8s-addon: ingress-nginx.addons.k8s.io
 data:
-  client-body-buffer-size: 32M
   hsts: "true"
-  proxy-body-size: 1G
-  proxy-buffering: "off"
-  proxy-read-timeout: "600"
-  proxy-send-timeout: "600"
-  server-tokens: "false"
   ssl-redirect: "true"
   force-ssl-redirect: "true"
-  upstream-keepalive-connections: "50"
   use-proxy-protocol: "false"
 
 ---

@@ -220,7 +220,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: nginx-configuration
-  namespace: ingress-nginx
+  namespace: kube-ingress
   labels:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
@@ -251,7 +251,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: ingress-nginx
-  namespace: ingress-nginx
+  namespace: kube-ingress
   labels:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
@@ -309,10 +309,8 @@ spec:
         ports:
           - name: http
             containerPort: 80
-            protocol: TCP
           - name: http-workaround
             containerPort: 8080
-            protocol: TCP
         readinessProbe:
           httpGet:
             path: /healthz

@@ -259,7 +259,7 @@ metadata:
     # Enable PROXY protocol
     service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
     # Specify SSL certificate to use
-    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:[...]
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "ARN"
     # Use SSL on the HTTPS port
     service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
 spec:

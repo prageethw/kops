@@ -224,7 +224,17 @@ metadata:
   labels:
     k8s-addon: ingress-nginx.addons.k8s.io
 data:
-  use-proxy-protocol: "true"
+  client-body-buffer-size: 32M
+  hsts: "true"
+  proxy-body-size: 1G
+  proxy-buffering: "off"
+  proxy-read-timeout: "600"
+  proxy-send-timeout: "600"
+  server-tokens: "false"
+  ssl-redirect: "true"
+  force-ssl-redirect: "true"
+  upstream-keepalive-connections: "50"
+  use-proxy-protocol: "false"
 
 ---
 
@@ -238,7 +248,7 @@ metadata:
   annotations:
     # Enable PROXY protocol
     service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
-    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "tcp" #make it http if you want https and http in play
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http" #make it http if you want https and http in play
     # Increase the ELB idle timeout to avoid issues with WebSockets or Server-Sent Events.
     service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "3600"
     service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "ARN" #put your AWS SSL cert ARN here

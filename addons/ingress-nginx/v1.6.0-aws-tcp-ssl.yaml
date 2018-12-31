@@ -1,4 +1,4 @@
-# this will not work till https://github.com/kubernetes/ingress-nginx/issues/2724 fixed
+
 apiVersion: v1
 kind: Namespace
 metadata:

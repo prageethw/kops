@@ -182,7 +182,7 @@ metadata:
     k8s-app: default-http-backend
     k8s-addon: ingress-nginx.addons.k8s.io
 spec:
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 10
   template:
     metadata:

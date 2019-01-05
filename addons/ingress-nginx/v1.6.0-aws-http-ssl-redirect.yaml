@@ -261,7 +261,6 @@ spec:
     port: 80
     targetPort: http
     protocol: TCP
-
 ---
 kind: Deployment
 apiVersion: extensions/v1beta1
@@ -286,7 +285,7 @@ spec:
       terminationGracePeriodSeconds: 60
       serviceAccountName: nginx-ingress-controller
       containers:
-      - image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller: 0.18.0
+      - image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.18.0
         name: nginx-ingress-controller
         imagePullPolicy: Always
         ports:

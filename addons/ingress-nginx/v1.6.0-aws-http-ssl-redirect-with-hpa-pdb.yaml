@@ -314,6 +314,13 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
+        resources:
+          limits:
+            cpu: 50m
+            memory: 100Mi
+          requests:
+            cpu: 50m
+            memory: 100Mi
         args:
         - /nginx-ingress-controller
         - --default-backend-service=$(POD_NAMESPACE)/nginx-default-backend
@@ -364,3 +371,26 @@ spec:
     resource:
       name: memory
       targetAverageUtilization: 80
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: ingress-nginx
+  namespace: kube-ingress
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: ingress-nginx
+
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: nginx-default-backend
+  namespace: kube-ingress
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: nginx-default-backend

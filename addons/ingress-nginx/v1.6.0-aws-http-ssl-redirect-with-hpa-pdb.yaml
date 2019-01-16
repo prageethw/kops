@@ -283,7 +283,7 @@ spec:
       terminationGracePeriodSeconds: 60
       serviceAccountName: nginx-ingress-controller
       containers:
-      - image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.22.0
+      - image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.21.0
         name: nginx-ingress-controller
         imagePullPolicy: Always
         ports:
@@ -317,10 +317,10 @@ spec:
         resources:
           limits:
             cpu: 50m
-            memory: 100Mi
+            memory: 200Mi
           requests:
             cpu: 50m
-            memory: 100Mi
+            memory: 200Mi
         args:
         - /nginx-ingress-controller
         - --default-backend-service=$(POD_NAMESPACE)/nginx-default-backend

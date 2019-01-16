@@ -204,10 +204,10 @@ spec:
         resources:
           limits:
             cpu: 10m
-            memory: 20Mi
+            memory: 50Mi
           requests:
             cpu: 10m
-            memory: 20Mi
+            memory: 50Mi
         ports:
         - name: http
           containerPort: 8080
@@ -316,11 +316,11 @@ spec:
                 fieldPath: metadata.namespace
         resources:
           limits:
-            cpu: 50m
-            memory: 100Mi
+            cpu: 10m
+            memory: 20Mi
           requests:
-            cpu: 50m
-            memory: 100Mi
+            cpu: 10m
+            memory: 20Mi
         args:
         - /nginx-ingress-controller
         - --default-backend-service=$(POD_NAMESPACE)/nginx-default-backend

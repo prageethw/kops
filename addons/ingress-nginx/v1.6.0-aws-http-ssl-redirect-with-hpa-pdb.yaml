@@ -204,10 +204,10 @@ spec:
         resources:
           limits:
             cpu: 10m
-            memory: 50Mi
+            memory: 20Mi
           requests:
             cpu: 10m
-            memory: 50Mi
+            memory: 20Mi
         ports:
         - name: http
           containerPort: 8080

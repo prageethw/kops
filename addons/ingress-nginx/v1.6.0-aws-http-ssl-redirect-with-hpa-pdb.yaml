@@ -174,7 +174,7 @@ spec:
 ---
 
 kind: Deployment
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 metadata:
   name: nginx-default-backend
   namespace: kube-ingress
@@ -182,6 +182,10 @@ metadata:
     k8s-app: default-http-backend
     k8s-addon: ingress-nginx.addons.k8s.io
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-default-backend
   revisionHistoryLimit: 10
   template:
     metadata:
@@ -261,8 +265,8 @@ spec:
     targetPort: http
     protocol: TCP
 ---
+apiVersion: apps/v1
 kind: Deployment
-apiVersion: apps/v1beta1
 metadata:
   name: ingress-nginx
   namespace: kube-ingress
@@ -270,7 +274,11 @@ metadata:
     k8s-app: nginx-ingress-controller
     k8s-addon: ingress-nginx.addons.k8s.io
 spec:
-   template:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingress-nginx
+  template:
     metadata:
       labels:
         app: ingress-nginx
